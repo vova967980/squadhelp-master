@@ -27,7 +27,6 @@ const LoginPage = (props) => {
             </div>
         </div>
     )
-
 };
 
 
