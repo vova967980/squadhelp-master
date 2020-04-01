@@ -11,7 +11,6 @@ const AgreeTermOfServiceInput = ({label, id,input, type, classes, meta: {touched
             </div>
             {touched && (error && <span className={classes.warning}>{error}</span>)}
         </div>
-
     )
 };
 
