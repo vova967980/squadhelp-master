@@ -13,7 +13,7 @@ import Error from '../../components/Error/Error';
 class LoginForm extends React.Component {
 
 
-    clicked = (values) => {
+    loginRequest = (values) => {
         this.props.loginRequest(values);
     };
 
@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
         const {handleSubmit, submitting} = this.props;
         return (
 
-                <form onSubmit={handleSubmit(this.clicked)}>
+                <form onSubmit={handleSubmit(this.loginRequest)}>
                     <Field
                         name='email'
                         classes={{

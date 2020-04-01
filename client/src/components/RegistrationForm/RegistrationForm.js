@@ -18,7 +18,7 @@ class RegistrationForm extends React.Component {
 
 
 
-    clicked = (values) => {
+    registerValues = (values) => {
         this.props.register({
             firstName: values.firstName,
             lastName: values.lastName,
@@ -34,7 +34,7 @@ class RegistrationForm extends React.Component {
         const {handleSubmit, submitting} = this.props;
 
         return (
-                <form onSubmit={handleSubmit(this.clicked)}>
+                <form onSubmit={handleSubmit(this.registerValues)}>
                     <div className={styles.row}>
                         <Field
                             name='firstName'
