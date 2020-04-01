@@ -12,9 +12,6 @@ import Error from '../../components/Error/Error';
 
 class LoginForm extends React.Component {
 
-    componentWillUnmount() {
-        this.props.authClear();
-    }
 
     clicked = (values) => {
         this.props.loginRequest(values);
@@ -22,12 +19,10 @@ class LoginForm extends React.Component {
 
 
     render() {
-        const {error, isFetching} = this.props.auth;
-        const {handleSubmit, submitting, authClear} = this.props;
+        const {isFetching} = this.props.auth;
+        const {handleSubmit, submitting} = this.props;
         return (
-            <div className={styles.loginForm}>
-                {error && <Error data={error.data} status={error.status} clearError={authClear}/>}
-                <h2>LOGIN TO YOUR ACCOUNT</h2>
+
                 <form onSubmit={handleSubmit(this.clicked)}>
                     <Field
                         name='email'
@@ -59,10 +54,11 @@ class LoginForm extends React.Component {
                         <span className={styles.inscription}>{isFetching ? 'Submitting...' : 'LOGIN'}</span>
                     </button>
                 </form>
-            </div>
         );
     }
 }
+
+
 
 const mapStateToProps = (state) => {
     const {auth} = state;
@@ -71,8 +67,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => (
     {
-        loginRequest: (data) => dispatch(authActionLogin(data)),
-        authClear: () => dispatch(clearAuth())
+        loginRequest: (data) => dispatch(authActionLogin(data))
     }
 );
 

@@ -16,9 +16,7 @@ import Schems from '../../validators/validationSchems';
 class RegistrationForm extends React.Component {
 
 
-    componentWillUnmount() {
-        this.props.authClear();
-    }
+
 
     clicked = (values) => {
         this.props.register({
@@ -33,19 +31,9 @@ class RegistrationForm extends React.Component {
 
 
     render() {
-        const {handleSubmit, submitting, auth, authClear} = this.props;
-        const {error} = auth;
+        const {handleSubmit, submitting} = this.props;
+
         return (
-            <div className={styles.signUpFormContainer}>
-                {error && <Error data={error.data} status={error.status} clearError={authClear}/>}
-                <div className={styles.headerFormContainer}>
-                    <h2>
-                        CREATE AN ACCOUNT
-                    </h2>
-                    <h4>
-                        We always keep your name and email address private.
-                    </h4>
-                </div>
                 <form onSubmit={handleSubmit(this.clicked)}>
                     <div className={styles.row}>
                         <Field
@@ -156,7 +144,6 @@ class RegistrationForm extends React.Component {
                         <span className={styles.inscription}>Create Account</span>
                     </button>
                 </form>
-            </div>
         )
     }
 }
@@ -173,8 +160,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => (
     {
-        register: (data) => dispatch(authActionRegister(data)),
-        authClear: () => dispatch(clearAuth())
+        register: (data) => dispatch(authActionRegister(data))
     }
 );
 
