@@ -29,94 +29,63 @@ class RegistrationForm extends React.Component {
         });
     };
 
-
     render() {
         const {handleSubmit, submitting} = this.props;
-
+        const fieldProps ={
+            container: styles.inputContainer,
+            className: styles.input,
+            warning: styles.fieldWarning,
+            validStyles: styles.valid,
+            invalidStyles: styles.notValid,
+        };
         return (
                 <form onSubmit={handleSubmit(this.registerValues)}>
                     <div className={styles.row}>
                         <Field
                             name='firstName'
-                            classes={{
-                                container: styles.inputContainer,
-                                input: styles.input,
-                                warning: styles.fieldWarning,
-                                notValid: styles.notValid,
-                                valid: styles.valid
-                            }}
                             component={FormInput}
                             type='text'
                             label='First name'
+                            {...fieldProps}
                         />
                         <Field
                             name='lastName'
-                            classes={{
-                                container: styles.inputContainer,
-                                input: styles.input,
-                                warning: styles.fieldWarning,
-                                notValid: styles.notValid,
-                                valid: styles.valid
-                            }}
                             component={FormInput}
                             type='text'
                             label='Last name'
+                            {...fieldProps}
                         />
                     </div>
                     <div className={styles.row}>
                         <Field
                             name='displayName'
-                            classes={{
-                                container: styles.inputContainer,
-                                input: styles.input,
-                                warning: styles.fieldWarning,
-                                notValid: styles.notValid,
-                                valid: styles.valid
-                            }}
                             component={FormInput}
                             type='text'
                             label='Display Name'
+                            {...fieldProps}
                         />
                         <Field
                             name='email'
-                            classes={{
-                                container: styles.inputContainer,
-                                input: styles.input,
-                                warning: styles.fieldWarning,
-                                notValid: styles.notValid,
-                                valid: styles.valid
-                            }}
                             component={FormInput}
                             type='text'
                             label='Email Address'
+                            {...fieldProps}
                         />
                     </div>
                     <div className={styles.row}>
                         <Field
                             name='password'
-                            classes={{
-                                container: styles.inputContainer,
-                                input: styles.input,
-                                warning: styles.fieldWarning,
-                                notValid: styles.notValid,
-                                valid: styles.valid
-                            }}
                             component={FormInput}
                             type='password'
                             label='Password'
+                            {...fieldProps}
                         />
                         <Field
                             name='confirmPassword'
-                            classes={{
-                                container: styles.inputContainer,
-                                input: styles.input,
-                                warning: styles.fieldWarning,
-                                notValid: styles.notValid,
-                                valid: styles.valid
-                            }}
                             component={FormInput}
                             type='password'
                             label='Password confirmation'
+                            {...fieldProps}
                         />
                     </div>
                     <div className={styles.choseRoleContainer}>

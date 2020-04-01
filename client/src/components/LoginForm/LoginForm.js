@@ -21,34 +21,29 @@ class LoginForm extends React.Component {
     render() {
         const {isFetching} = this.props.auth;
         const {handleSubmit, submitting} = this.props;
+        const fieldProps ={
+            container: styles.inputContainer,
+            className: styles.input,
+            warning: styles.fieldWarning,
+            validStyles: styles.valid,
+            invalidStyles: styles.notValid,
+        };
         return (
 
                 <form onSubmit={handleSubmit(this.loginRequest)}>
                     <Field
                         name='email'
-                        classes={{
-                            container: styles.inputContainer,
-                            input: styles.input,
-                            warning: styles.fieldWarning,
-                            notValid: styles.notValid,
-                            valid: styles.valid
-                        }}
                         component={FormInput}
                         type='text'
                         label='Email Address'
+                        {...fieldProps}
                     />
                     <Field
                         name='password'
-                        classes={{
-                            container: styles.inputContainer,
-                            input: styles.input,
-                            warning: styles.fieldWarning,
-                            notValid: styles.notValid,
-                            valid: styles.valid
-                        }}
                         component={FormInput}
                         type='password'
                         label='password'
+                        {...fieldProps}
                     />
                     <button type='submit' disabled={submitting} className={styles.submitContainer}>
                         <span className={styles.inscription}>{isFetching ? 'Submitting...' : 'LOGIN'}</span>
