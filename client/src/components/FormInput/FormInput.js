@@ -1,6 +1,6 @@
 import React      from 'react';
 import classNames from 'classnames';
-import PropTypes  from 'prop-types'
+import PropTypes  from 'prop-types';
 
 const FormInput = ( props ) => {
     const {label, input, type, className, validStyles, invalidStyles, container, warning, meta: {touched, error}} = props;
@@ -18,12 +18,12 @@ const FormInput = ( props ) => {
     )
 };
 
-FormInput.PropTypes = {
-    className: PropTypes.string,
+FormInput.propTypes = {
+    className: PropTypes.string.isRequired,
     validStyles: PropTypes.string,
     invalidStyles: PropTypes.string,
-    container: PropTypes.string,
-    warning: PropTypes.string,
+    container: PropTypes.string.isRequired,
+    warning: PropTypes.string.isRequired,
 };
 
 export default FormInput;

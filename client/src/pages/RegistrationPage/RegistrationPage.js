@@ -11,6 +11,7 @@ import { Field }                               from "redux-form";
 import FormInput                               from "../../components/FormInput/FormInput";
 import RoleInput                               from "../../components/RoleInput/RoleInput";
 import AgreeTermOfServiceInput                 from "../../components/AgreeTermOfServiceInput/AgreeTermOfServiceInput";
+import Article                                 from "../../components/Article/Article";
 
 class RegistrationPage extends React.Component {
 
@@ -55,44 +56,20 @@ class RegistrationPage extends React.Component {
                 <div className={styles.footer}>
                     <div className={styles.articlesMainContainer}>
                         <div className={styles.ColumnContainer}>
-                            <div className={styles.headerArticle}>{articleData[0].headerArticle}</div>
-                            <div className={styles.article}>
-                                {
-                                    articleData[0].data
-                                }
-                            </div>
-                            <div className={styles.headerArticle}>{articleData[1].headerArticle}</div>
-                            <div className={styles.article}>
-                                {
-                                    articleData[1].data
-                                }
-                            </div>
+                            <Article headerArticle={articleData[0].headerArticle} data={articleData[0].data}
+                                     dataStyles={styles.article} headerStyles={styles.headerArticle}/>
+                            <Article headerArticle={articleData[1].headerArticle} data={articleData[1].data}
+                                     dataStyles={styles.article} headerStyles={styles.headerArticle}/>
                         </div>
                         <div className={styles.ColumnContainer}>
-                            <div className={styles.headerArticle}>{articleData[2].headerArticle}</div>
-                            <div className={styles.article}>
-                                {
-                                    articleData[2].data
-                                }
-                            </div>
-                            <div className={styles.headerArticle}>{articleData[3].headerArticle}</div>
-                            <div className={styles.article}>
-                                {
-                                    articleData[3].data
-                                }
-                            </div>
-                            <div className={styles.headerArticle}>{articleData[4].headerArticle}</div>
-                            <div className={styles.article}>
-                                {
-                                    articleData[4].data
-                                }
-                            </div>
-                            <div className={styles.headerArticle}>{articleData[5].headerArticle}</div>
-                            <div className={styles.article}>
-                                {
-                                    articleData[5].data
-                                }
-                            </div>
+                            <Article headerArticle={articleData[2].headerArticle} data={articleData[2].data}
+                                     dataStyles={styles.article} headerStyles={styles.headerArticle}/>
+                            <Article headerArticle={articleData[3].headerArticle} data={articleData[3].data}
+                                     dataStyles={styles.article} headerStyles={styles.headerArticle}/>
+                            <Article headerArticle={articleData[4].headerArticle} data={articleData[4].data}
+                                     dataStyles={styles.article} headerStyles={styles.headerArticle}/>
+                            <Article headerArticle={articleData[5].headerArticle} data={articleData[5].data}
+                                     dataStyles={styles.article} headerStyles={styles.headerArticle}/>
                             <div className={styles.headerArticle}>I have other questions! How can I get in touch with
                                 Squadhelp?
                             </div>
