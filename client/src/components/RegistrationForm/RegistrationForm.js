@@ -1,5 +1,5 @@
-import React from 'react';
-import Error from '../Error/Error';
+import React, { useState } from 'react';
+import Error               from '../Error/Error';
 import {connect} from "react-redux";
 import {authActionRegister, clearAuth} from '../../actions/actionCreator';
 import {Redirect} from 'react-router-dom';
@@ -31,62 +31,46 @@ class RegistrationForm extends React.Component {
 
     render() {
         const {handleSubmit, submitting} = this.props;
-        const fieldProps ={
-            container: styles.inputContainer,
+        const formInputProps = {
+            containerStyles: styles.inputContainer,
             className: styles.input,
-            warning: styles.fieldWarning,
+            warningStyles: styles.fieldWarning,
             validStyles: styles.valid,
             invalidStyles: styles.notValid,
         };
+
+
+        const fieldRender = ( name, type, placeholder,  ) => {
+            return (
+                <Field name={name} type={type} placeholder={placeholder} {...formInputProps} component={FormInput} />
+            );
+        };
+
         return (
                 <form onSubmit={handleSubmit(this.registerValues)}>
                     <div className={styles.row}>
-                        <Field
-                            name='firstName'
-                            component={FormInput}
-                            type='text'
-                            label='First name'
-                            {...fieldProps}
-                        />
-                        <Field
-                            name='lastName'
-                            component={FormInput}
-                            type='text'
-                            label='Last name'
-                            {...fieldProps}
-                        />
+                        {
+                            fieldRender( 'firstName', 'text', 'Name' )
+                        }
+                        {
+                            fieldRender( 'lastName', 'text', 'Surname' )
+                        }
                     </div>
                     <div className={styles.row}>
-                        <Field
-                            name='displayName'
-                            component={FormInput}
-                            type='text'
-                            label='Display Name'
-                            {...fieldProps}
-                        />
-                        <Field
-                            name='email'
-                            component={FormInput}
-                            type='text'
-                            label='Email Address'
-                            {...fieldProps}
-                        />
+                        {
+                            fieldRender( 'displayName', 'text', 'Display Name' )
+                        }
+                        {
+                            fieldRender( 'email', 'email', 'Email address' )
+                        }
                     </div>
                     <div className={styles.row}>
-                        <Field
-                            name='password'
-                            component={FormInput}
-                            type='password'
-                            label='Password'
-                            {...fieldProps}
-                        />
-                        <Field
-                            name='confirmPassword'
-                            component={FormInput}
-                            type='password'
-                            label='Password confirmation'
-                            {...fieldProps}
-                        />
+                        {
+                            fieldRender( 'password', 'password', 'Password' )
+                        }
+                        {
+                            fieldRender( 'confirmPassword', 'password', 'Password confirmation' )
+                        }
                     </div>
                     <div className={styles.choseRoleContainer}>
                         <Field name='role' type='radio' value={CONSTANTS.CUSTOMER} strRole='Join As a Buyer'
